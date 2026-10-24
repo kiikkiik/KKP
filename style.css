@@ -1,0 +1,7 @@
+   :root {
+       --color-primary: #1E3A8A;    /* Тёмно-синий */
+       --color-bg: #F8FAFC;         /* Светло-серый фон */
+       --color-surface: #FFFFFF;    /* Белый для карточек */
+       --color-accent: #F59E0B;     /* Янтарный */
+       --color-text: #1E293B;       /* Графитовый */
+   }
