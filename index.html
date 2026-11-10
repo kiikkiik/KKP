@@ -4,47 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>English Text Analyzer</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Шапка сайта -->
     <header>
-        <h1>English Text Analyzer</h1>
+        <div class="container">
+            <h1>English Text Analyzer</h1>
+            <p>Assess text complexity by CEFR levels</p>
+        </div>
     </header>
 
-    <!-- Основное содержимое страницы -->
-    <main>
+    <main class="container">
         
-        <!-- Блок ввода текста -->
-        <section>
-            <h2>Введите текст для анализа</h2>
-            <textarea rows="10" cols="50" placeholder="Вставьте ваш текст сюда..."></textarea>
-            <br><br>
-            <input type="file" accept=".txt">
-            <br><br>
-            <button type="button">Анализировать</button>
+        <section class="input-section">
+            <h2>Input Text for Analysis</h2>
+            <p class="hint">Paste your English text here or upload a file.</p>
+            
+            <textarea class="text-input" rows="10" placeholder="Start typing or paste your text here..."></textarea>
+            
+            <!-- ДОБАВЛЕН БЛОК ДЛЯ СООБЩЕНИЯ ОБ ОШИБКЕ -->
+            <p class="error-message" style="color: red; display: none; margin-top: -10px; margin-bottom: 15px; font-size: 14px;"></p>
+
+            <div class="actions">
+                <button class="btn btn-outline">Upload File</button>
+                <button class="btn btn-primary">Analyze Text</button>
+            </div>
         </section>
 
-        <!-- Блок результатов -->
-        <section>
-            <h2>Результаты анализа</h2>
-            <div id="results-container">
-                <!-- Сюда позже будем выводить результаты через JavaScript -->
-                <p>Здесь появятся результаты после нажатия кнопки.</p>
+        <section class="results-section" id="results-section" style="display: none;">
+            <h2>Analysis Results</h2>
+
+            <!-- Карточка с уровнем -->
+            <div class="result-card main-result">
+                <div class="level-badge" id="level-badge">--</div>
+                <div class="level-desc">
+                    <h3 id="level-name">--</h3>
+                    <p id="level-description">--</p>
+                </div>
             </div>
+
+            <!-- Карточка с лексической сложностью -->
+            <div class="result-card">
+                <h3>Lexical Complexity</h3>
+                <div class="stat-row">
+                    <span>A1-A2 (Basic)</span>
+                    <div class="progress-bar"><div class="fill" id="bar-a1a2" style="width: 0%;"></div></div>
+                    <span id="percent-a1a2">0%</span>
+                </div>
+                <div class="stat-row">
+                    <span>B1-B2 (Intermediate)</span>
+                    <div class="progress-bar"><div class="fill accent" id="bar-b1b2" style="width: 0%;"></div></div>
+                    <span id="percent-b1b2">0%</span>
+                </div>
+                <div class="stat-row">
+                    <span>C1-C2 (Advanced)</span>
+                    <div class="progress-bar"><div class="fill dark" id="bar-c1c2" style="width: 0%;"></div></div>
+                    <span id="percent-c1c2">0%</span>
+                </div>
+            </div>
+
+            <!-- Карточка со сложными словами -->
+            <div class="result-card">
+                <h3>Complex Words Identified</h3>
+                <div class="tags" id="complex-words">
+                    <!-- Сюда JavaScript сам добавит теги -->
+                </div>
+            </div>
+
         </section>
 
     </main>
 
-    <!-- Подвал сайта -->
     <footer>
-        <p>&copy; 2024 Командный проект</p>
+        <p>&copy; 2026 Thermal imaging monitoring.</p>
     </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="main.js"></script>
 
 </body>
 </html>
